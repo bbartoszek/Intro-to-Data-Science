@@ -1,0 +1,21 @@
+## SNF Deficiency Prevention
+<br><br>
+
+#### The Problem
+  Skilled nursing facilities are highly regulated by the Centers for Medicare and Medicaid Services (**CMS**).  Each skilled nursing facility is surveyed by the Office of Inspector General (**OIG**) each year during the annual survey and also following complaints made against the facility.  If the OIG agents determine that the facility is out of compliance on any CMS regulations, then the facility can be tagged with deficiencies on the final report.  The facility can be charged civil money penalties (**CMP**) for each deficiency ranging from $50 to $10,000 per day out of compliance.  Being blindsided by massive CMP fines can be crippling to a skilled nursing facility.
+<br><br>
+
+#### The Client
+  Being able to identify which deficiency types are most common and most likely to be repeated year over year can help skilled nursing facility owners and operators mitigate CMP fines.  By flagging these high risk deficiencies, the operators can conduct audits on these areas before the OIG survey and correct processes and/or employee behavior that would result in a deficiency.   Our initial client would be Signature Healthcare, but we would be able to easily expand our clientele to any skilled nursing facilty owner or operator in the United States.
+<br><br>
+
+#### The Data
+  The data that we'll be using will be deficiency reports available from [Medicare.gov](https://data.medicare.gov/data/nursing-home-compare).  The reports download in an excel format.  The data includes the deficiencies reported on the annual surveys and complaint surveys for every skilled nursing facility in the United States.  The data has details about the scope of each deficiency, the sitation date, whether the deficiency was from a standard survey or a complaint survey, the deficiency code number and ID number, name and address of the skilled nursing facility.
+<br><br>
+
+#### The Solution  
+  Each year CMS typically focuses on investigating a specific group of deficiencies each year in addition to routine inspection.  Since we'd like to predict which tags are most likely to be tagged on a facility's next survey, we'll use historical information to try to identify patterns.  To identify which deficiencies have a high probability of being tagged, we'll identify these deficiencies with three different methods. We'll calculate which deficiencies are the most commonly tagged in an OIG report historically.  We'll also calculate which deficiencies are most commonly being tagged in the current year as compared to prior years, which will identify the focus group.  Finally, we'll calculate the probablility of a specific deficiency to be tagged if the facility received the same tag on the prior year's annual survey.
+<br><br>
+
+#### The Deliverables
+  By the end of the project, we'll provide code to clean the data, explore the data, calculate statistics and provide results output.  We'll also provide a final report as well as a presentation.
