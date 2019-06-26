@@ -1,0 +1,30 @@
+---
+title: "Data Wrangling Exercise 2"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+```
+
+
+```{r}
+titanic_original$embarked <- titanic_original$embarked %>% replace_na("S")
+```
+
+```{r}
+titanic_original$age <- titanic_original$age %>% replace_na(mean(titanic_original$age,na.rm=TRUE))
+```
+
+```{r}
+titanic_original$boat <- titanic_original$boat %>% replace_na("None")
+```
+
+```{r}
+titanic_original["has_cabin_number"] <- ifelse(is.na(titanic_original$cabin), 0, 1)
+```
+
+write.csv(titanic_original, "C:/Users/Hecho/Desktop/Springboard Course/titanic_clean.csv")
+
