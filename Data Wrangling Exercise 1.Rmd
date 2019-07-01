@@ -1,0 +1,59 @@
+---
+title: "Data Wrangling Exercise"
+author: "Ben Bartoszek"
+date: "6/17/2019"
+output: html_document
+---
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+getwd()
+```
+
+```{r}
+refine_original <- read_excel("refine_original.csv")
+View(refine_original)
+```
+
+```{r}
+refine_original$company <- tolower(refine_original$company)
+```
+
+```{r}
+refine_original <- separate(refine_original, `Product code / number`, into = c("Product_Code","Product_Number"), "-", remove = FALSE, convert = TRUE)
+```
+
+```{r}
+refine_original["Product_Category"] <- str_replace_all(
+  refine_original$Product_Code,
+  c("p" = "Smartphone","v" = "TV","x" = "Laptop","q" = "Tablet"))
+```
+
+```{r}
+refine_original <- unite(refine_original, "Full_Address", address, city, country, sep = ", ")
+```
+
+```{r}
+refine_original$company_phillips <- ifelse(refine_original$company == 'phillips', 1, 0)
+refine_original$company_akzo <- ifelse(refine_original$company == 'akzo', 1, 0)
+refine_original$company_van_houten <- ifelse(refine_original$company == 'van_houten', 1, 0)
+refine_original$company_unilever <- ifelse(refine_original$company == 'unilever', 1, 0)
+```
+
+```{r}
+refine_original$product_smartphone <- ifelse(refine_original$Product_Code == 'p', 1, 0)
+refine_original$product_tv <- ifelse(refine_original$Product_Code == 'v', 1, 0)
+refine_original$product_laptop <- ifelse(refine_original$Product_Code == 'x', 1, 0)
+refine_original$product_tablet <- ifelse(refine_original$Product_Code == 'q', 1, 0)
+```
+
+```{r}
+write.csv(refine_original, "refine_clean.csv")
+```
