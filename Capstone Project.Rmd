@@ -1,0 +1,34 @@
+---
+title: "Capstone Project"
+author: "Ben Bartoszek"
+date: "7/2/2019"
+output: html_document
+---
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+getwd()
+```
+
+```{r}
+Health_Deficiencies <- read.csv("HealthDeficiencies_Download.csv")
+View(Health_Deficiencies)
+```
+
+```{r}
+Health_Deficiencies <- unite(Health_Deficiencies, "Full_Address", ADDRESS, CITY, STATE, ZIP, sep = ", ", remove = FALSE)
+```
+
+```{r}
+Health_Deficiencies$Substandard_Care <- ifelse(Health_Deficiencies$SCOPE == "G"| Health_Deficiencies$SCOPE == "H" | Health_Deficiencies$SCOPE == "I" | Health_Deficiencies$SCOPE == "J" | Health_Deficiencies$SCOPE == "K" | Health_Deficiencies$SCOPE == "L", "Substandard Care", "Not Substandard Care")
+```
+
+```{r}
+write.csv(Health_Deficiencies, "Health_Deficiencies_Revised.csv")
+```
